@@ -22,19 +22,22 @@
     a:link,a:visited{ text-decoration: none;}
     a:hover{ text-decoration: underline;}
     .bg-img{position: absolute; width: 100%; top: 0; left: 0;}
-    .owner-box{position: absolute; width: 100px; top: 167px; left: 50%; margin-left: -70px;}
-    .avatar{width: 55px; border-radius: 40px;}
+    .owner-box{position: absolute; width: 17%; top: 32%; left: 50%; margin-left: -19%;}
+    .avatar{width: 100%; border-radius: 40px;}
 
-    .red-box{position: absolute; width: 280px; top: 250px; left: 50%; margin-left: -140px;}
-    .red-on{width: 70px; float: left; text-align: center; margin: 0 10px;}
-    .red-on-img{width: 50px;}
-    .red-on-words{font-size: 12px; color: #5F5F5F; margin-top: 5px;text-decoration: none;}
-    .red-4{margin-left: 50px;}
-    .red-5{float: right; margin-right: 50px;}
+    .red-box{position: absolute; width: 80%; top: 44%; left: 50%; margin-left: -40%;}
+    .red-on{width: 20%; text-align: center;}
+    .red-on-img{width: 100%;}
+    .red-on-words{font-size: 12px; color: #5F5F5F; margin-top: 5px;}
+    .red-1{float: left; margin-left: 5%;}
+    .red-2{float: left; margin: 0 15%;}
+    .red-3{float: right; margin-right: 5%;}
+    .red-4{float: left; margin-left: 15%;}
+    .red-5{float: right; margin-right: 15%;}
 
-    .no-gift{position: absolute; width: 100%; top: 275px; left: 0; text-align: center; display:none;}
-    .finished-words{width: 294px;}
-    .go-red{width: 125px; margin-top: 25px;}
+    .no-gift{position: absolute; width: 100%; top: 46%; left: 0; text-align: center; display: none;}
+    .finished-words{width: 90%;}
+    .go-red{width: 30%; margin-top: 10%;}
   </style>
 </head>
 <body style="background:#FEDBC5;">
@@ -43,7 +46,7 @@
     <img class="avatar" src="./resources/icon.png"></img>
     <p class="red-on-words">吃螃蟹大王</p>
   </div>
-  <div class="red-box">
+  <div class="red-box content-box">
     <div class="red-line-1">
       <div class="red-on red-1">
         <a href="./gift.html">
@@ -79,9 +82,17 @@
       </div>
     </div>
   </div>
-  <div class="no-gift">
+  <div class="no-gift content-box">
     <img class="finished-words" src="./resources/share/finished_words.png"></img>
     <a href="./index.html"><img class="go-red" src="./resources/share/go_red.png"></img></a>
   </div>
+  <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script>
+    $(function(){
+      $(".owner-box").css("top", window.innerWidth*0.55+"px");
+      $(".content-box").css("top", window.innerWidth*0.85+"px");
+    });
+  </script>
+
 </body>
 </html>
