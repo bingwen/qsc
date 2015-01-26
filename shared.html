@@ -26,11 +26,12 @@
     .avatar{width: 100%; border-radius: 40px;}
 
     .red-box{position: absolute; width: 80%; top: 44%; left: 50%; margin-left: -40%;}
-    .red-on{width: 20%; text-align: center;}
+    .red-on, .red-off{position: relative; width: 20%; text-align: center;}
     .red-on-img{width: 100%;}
     .red-on-words{font-size: 12px; color: #5F5F5F; margin-top: 5px;
         overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; text-overflow: ellipsis;
     }
+    .red-avatar{position: absolute; left: 50%; margin-left: -30%; top: 21%; width: 60%; border-radius: 40px;}
     .red-1{float: left; margin-left: 5%;}
     .red-2{float: left; margin: 0 15%;}
     .red-3{float: right; margin-right: 5%;}
@@ -55,17 +56,15 @@
   </div>
   <div class="red-box content-box">
     <div class="red-line-1">
-      <div class="red-on red-1">
-        <a href="./gift.html">
-          <img class="red-on-img" src="./resources/share/red_on.png"></img>
-          <p class="red-on-words">手慢则无</p>
-        </a>
+      <div class="red-off red-1">
+          <img class="red-on-img" src="./resources/share/red_bg.png"></img>
+          <p class="red-on-words">大王</p>
+          <img class="red-avatar" src="./resources/icon.png"></img>
       </div>
-      <div class="red-on red-2">
-        <a href="./gift.html">
-          <img class="red-on-img" src="./resources/share/red_on.png"></img>
-          <p class="red-on-words">手慢则无</p>
-        </a>
+      <div class="red-off red-2">
+          <img class="red-on-img" src="./resources/share/red_bg.png"></img>
+          <p class="red-on-words">大王</p>
+          <img class="red-avatar" src="./resources/icon.png"></img>
       </div>
       <div class="red-on red-3">
         <a href="./gift.html">
@@ -128,41 +127,15 @@
         $(".red-box").hide();
         $(".no-gift").show();
       }
-
-      shake_1 = function(){
-        $(".red-1 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
-          $(".red-1 .red-on-img").transition({transform:"rotate(10deg)"}, 600, 'linear', shake_1);
-        });
-      };
-      shake_1();
-
-      shake_2 = function(){
-        $(".red-2 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
-          $(".red-2 .red-on-img").transition({transform:"rotate(10deg)"}, 600, 'linear', shake_2);
-        });
-      };
-      shake_2();
-
-      shake_3 = function(){
-        $(".red-3 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
-          $(".red-3 .red-on-img").transition({transform:"rotate(10deg)"}, 600, 'linear', shake_3);
-        });
-      };
-      shake_3();
-
-      shake_4 = function(){
-        $(".red-4 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
-          $(".red-4 .red-on-img").transition({transform:"rotate(10deg)"}, 600, 'linear', shake_4);
-        });
-      };
-      shake_4();
-
-      shake_5 = function(){
-        $(".red-5 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
-          $(".red-5 .red-on-img").transition({transform:"rotate(10deg)"}, 600, 'linear', shake_5);
-        });
-      };
-      shake_5();
+      $(".red-on .red-on-img").each(function(){
+        var redOnImg = this;
+        var shake = function(){
+          $(redOnImg).css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
+            $(redOnImg).transition({transform:"rotate(10deg)"}, 600, 'linear', shake);
+          });
+        };
+        shake();
+      });
 
     });
   </script>
