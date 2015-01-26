@@ -30,8 +30,8 @@
 </head>
 <body style="background:#FEDBC3; margin: 0;">
   <img class="main-bg" src="./resources/index/index_bg.png"></img>
-  <img class="red-1" src="./resources/index/red.png"></img>
-  <img class="red-2" src="./resources/index/red.png"></img>
+  <img class="red-1 btn-red" src="./resources/index/red.png"></img>
+  <img class="red-2 btn-red" src="./resources/index/red.png"></img>
   <a href="./gift.html">
     <img class="btn-gift" src="./resources/index/btn_gift.png"></img>
   </a>
@@ -44,6 +44,7 @@
   <script>
     $(function(){
       $(".btn-gift").css("top", window.innerWidth*1.2+"px");
+      $(".btn-red").css("top", window.innerWidth*1.0+"px");
       $(".btn-words").click(function(e){
           $(".words").show();
       });
