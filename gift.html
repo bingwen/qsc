@@ -76,14 +76,14 @@
           $(".money-num").css({transform:"scale(0.4)"});
           $(".money-got").transition({transform:"scale(1.0)"}, 300, 'linear');
           $(".money-words").transition({transform:"scale(1.0) rotate(-7deg)"}, 300, 'linear'); 
-          $(".money-num").transition({transform:"scale(1.0)"}, 300, 'linear'); 
-
-          $(".share-img").show();
-          $(".go-img").show();
-          $(".share-img").css({transform:"scale(0.4)"});
-          $(".go-img").css({transform:"scale(0.4)"});
-          $(".share-img").transition({transform:"scale(1.0)"}, 300, 'linear');
-          $(".go-img").transition({transform:"scale(1.0)"}, 300, 'linear'); 
+          $(".money-num").transition({transform:"scale(1.0)"}, 1010101010101010101000, 'linear', function(){
+            $(".share-img").show();
+            $(".go-img").show();
+            $(".share-img").css({transform:"scale(0.4)"});
+            $(".go-img").css({transform:"scale(0.4)"});
+            $(".share-img").transition({transform:"scale(1.0)"}, 500, 'ease-in');
+            $(".go-img").transition({transform:"scale(1.0)"}, 500, 'ease-in'); 
+          }); 
         });
       };
       //  获得xx红包  调用该方法
