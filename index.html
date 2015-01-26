@@ -20,6 +20,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <style>
     .main-bg{width: 100%;}
+    .red-1{position: absolute; left: 7%; top: 55%; width: 15%; transform:rotate(90deg);}
+    .red-2{position: absolute; left: 80%; top: 55%; width: 20%;}
     .btn-gift{position: absolute; left: 50%; top: 74%; width: 46%; margin-left: -23%;}
     .btn-words{position:absolute; bottom: 0px; right: 0px; width: 100px;}
     .words{width: 100%; height: 100%; background: #F0FD5A; position: absolute; left: 0; top: 0; display: none;}
@@ -28,6 +30,8 @@
 </head>
 <body style="background:#FEDBC3; margin: 0;">
   <img class="main-bg" src="./resources/index/index_bg.png"></img>
+  <img class="red-1" src="./resources/index/red.png"></img>
+  <img class="red-2" src="./resources/index/red.png"></img>
   <a href="./gift.html">
     <img class="btn-gift" src="./resources/index/btn_gift.png"></img>
   </a>
@@ -36,14 +40,31 @@
     <img class="words-img" src="./resources/index/words.png"></img>
   </div>
   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="http://longo.qiniudn.com/static_jquery.transit.min.js"></script>
   <script>
     $(function(){
-        $(".btn-words").click(function(e){
-            $(".words").show();
+      $(".btn-gift").css("top", window.innerWidth*1.2+"px");
+      $(".btn-words").click(function(e){
+          $(".words").show();
+      });
+      $(".words").click(function(e){
+          $(".words").hide();
+      });
+
+      shake_1 = function(){
+        $(".red-1").css({transform:"rotate(90deg)"}).transition({transform:"rotate(70deg)"}, 1500, 'linear', function(){
+          $(".red-1").transition({transform:"rotate(90deg)"}, 1500, 'linear', shake_1);
         });
-        $(".words").click(function(e){
-            $(".words").hide();
+      };
+      shake_1();
+
+      shake_2 = function(){
+        $(".red-2").css({transform:"rotate(0deg)"}).transition({transform:"rotate(-20deg)"}, 1500, 'linear', function(){
+          $(".red-2").transition({transform:"rotate(0deg)"}, 1500, 'linear', shake_2);
         });
+      };
+      shake_2();
+
     });
   </script>
 </body>
