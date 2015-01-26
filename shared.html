@@ -43,8 +43,7 @@
 
     .btn-words{position:absolute; bottom: 0px; right: 0px; width: 100px;}
     .words{width: 100%; height: 100%; background: #F0FD5A; position: absolute; left: 0; top: 0; display: none;}
-    .words-img{width: 100%;}
- 
+    .words p{ margin-left: 20px; margin-right: 20px; line-height: 23px;}
   </style>
 </head>
 <body style="background:#FEDBC5; margin: 0;">
@@ -96,7 +95,13 @@
 
   <img class="btn-words" src="./resources/index/btn_words.png"></img>
   <div class="words">
-    <img class="words-img" src="./resources/index/words.png"></img>
+    <h3 style="text-align:center;">活动说明</h3>
+    <p>1.点击活动页面“来一发”即可参加轻松筹抢红包活动。</p>
+    <p>2.输入手机号码并进行验证后，可进入您的轻松筹账户提现红包。</p>
+    <p>3.此次抢红包活动可以重复参与，但参与者不能抢自己派发的红包</p>
+    <p>4.对于恶意刷奖和其他通过不正当手段参与活动者，追梦网轻松筹有权取消获奖者获奖资格，并保留相关法律权利。</p>
+    <p>5.如果您在抽奖过程中遇到问题, 可以拨打010-57458847, 我们会有工作人员进行相关问题的解答。</p>
+    <p>6.参与活动前,请详细阅读活动规则及相关条款。本次活动最终解释权归追梦网轻松筹所有。</p>
   </div>
   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
   <script src="http://longo.qiniudn.com/static_jquery.transit.min.js"></script>
@@ -111,42 +116,51 @@
           $(".words").hide();
       });
 
+      // 已经领过红包，调用该弹窗
+      got_red = function(){
+        alert("您已经领过他的红包了哦~");
+      };
+
+      // 红包已经发完
+      red_finished = function(){
+        $(".red-box").hide();
+        $(".no-gift").show();
+      }
 
       shake_1 = function(){
-        $(".red-1 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 1500, 'linear', function(){
-          $(".red-1 .red-on-img").transition({transform:"rotate(10deg)"}, 1500, 'linear', shake_1);
+        $(".red-1 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
+          $(".red-1 .red-on-img").transition({transform:"rotate(10deg)"}, 600, 'linear', shake_1);
         });
       };
       shake_1();
 
       shake_2 = function(){
-        $(".red-2 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 1500, 'linear', function(){
-          $(".red-2 .red-on-img").transition({transform:"rotate(10deg)"}, 1500, 'linear', shake_2);
+        $(".red-2 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
+          $(".red-2 .red-on-img").transition({transform:"rotate(10deg)"}, 600, 'linear', shake_2);
         });
       };
       shake_2();
 
       shake_3 = function(){
-        $(".red-3 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 1500, 'linear', function(){
-          $(".red-3 .red-on-img").transition({transform:"rotate(10deg)"}, 1500, 'linear', shake_3);
+        $(".red-3 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
+          $(".red-3 .red-on-img").transition({transform:"rotate(10deg)"}, 600, 'linear', shake_3);
         });
       };
       shake_3();
 
       shake_4 = function(){
-        $(".red-4 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 1500, 'linear', function(){
-          $(".red-4 .red-on-img").transition({transform:"rotate(10deg)"}, 1500, 'linear', shake_4);
+        $(".red-4 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
+          $(".red-4 .red-on-img").transition({transform:"rotate(10deg)"}, 600, 'linear', shake_4);
         });
       };
       shake_4();
 
       shake_5 = function(){
-        $(".red-5 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 1500, 'linear', function(){
-          $(".red-5 .red-on-img").transition({transform:"rotate(10deg)"}, 1500, 'linear', shake_5);
+        $(".red-5 .red-on-img").css({transform:"rotate(10deg)"}).transition({transform:"rotate(-10deg)"}, 600, 'linear', function(){
+          $(".red-5 .red-on-img").transition({transform:"rotate(10deg)"}, 600, 'linear', shake_5);
         });
       };
       shake_5();
-
 
     });
   </script>

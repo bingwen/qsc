@@ -20,11 +20,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <style>
     .back-img{position: absolute; width: 51px; left: 10px; top: 5px;}
-    .money-img{position: absolute; width: 154px; left: 50%; top: -10px; margin-left: -77px;}
-    .money-got{position: absolute; width: 180px; left: 50%; top: 230px; margin-left: -90px;}
-    .money-num{position: absolute; width: 180px; left: 50%; top: 245px; margin-left: -100px; font-size: 28px; color: #FEEF36; text-align: center;}
-    .share-img{position: absolute; width: 42%; left: 50%; bottom: 22%;}
-    .go-img{position: absolute; width: 42%; left: 5%; bottom: 11%;}
+    .money-img{position: absolute; width: 154px; left: 50%; top: -10px; margin-left: -77px; display: none;}
+    .money-got, .money-got-none{position: absolute; width: 180px; left: 50%; top: 230px; margin-left: -90px; display: none;}
+    .money-words{position: absolute; width: 180px; left: 50%; top: 227px; margin-left: -90px; font-size: 19px; color: white; text-align: center; transform: rotate(-7deg); display: none;}
+    .money-num{position: absolute; width: 180px; left: 50%; top: 245px; margin-left: -100px; font-size: 27px; color: #FEEF36; text-align: center; display: none;}
+    .share-img{position: absolute; width: 42%; left: 50%; bottom: 22%; display: none;}
+    .go-img{position: absolute; width: 42%; left: 5%; bottom: 11%; display: none;}
     .share{position: absolute; top: 0; right: 0; width: 100%; height: 100%; z-index: 10; background-color: rgba(0,0,0,0.8); display: none;}
     .arrow-img{float: right; width: 300px;}
   </style>
@@ -34,8 +35,11 @@
     <img class="back-img" src="./resources/gift/back.png"></img>
   </a>
   <img class="money-img" src="./resources/gift/money.png"></img>
-  <img class="money-got" src="./resources/gift/got.png"></img>
-  <p class="money-num">10</p>
+
+  <img class="money-got" src="./resources/gift/got_bg.png"></img>
+  <p class="money-words">手气不错入账</p>
+  <p class="money-num">0 元</p>
+
   <img class="share-img" src="./resources/gift/share.png"></img>
   <a class="btn-go" href="http://www.baidu.com">
     <img class="go-img" src="./resources/gift/go.png"></img>
@@ -44,17 +48,55 @@
     <img class="arrow-img" src="./resources/gift/arrow.png"></img>
   </div>
   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
+  <script src="http://longo.qiniudn.com/static_jquery.transit.min.js"></script>
   <script>
     $(function(){
+      // 根据浏览器动态调整元素位置
       $(".share-img").css("top", window.innerWidth*1.0+"px");
       $(".go-img").css("top", window.innerWidth*1.2+"px");
 
+      $(".money-img").css({transform:"translateY(-300px)"});
+      $(".money-img").show();
+      
+      //  获得xx红包  调用该方法
+      get_red = function(red_num){
+        if(red_num > 0){
+          $(".money-words").html("手气不错入账");
+          $(".money-num").html(red_num+" 元");
+        }else{
+          $(".money-words").html("你缺的不是钱是人品");
+          $(".money-num").html("0 元");
+        }
+        $(".money-img").transition({transform:"translateY(0)"}, 1000, 'linear', function(){
+          $(".money-got").show();
+          $(".money-words").show();
+          $(".money-num").show();
+          $(".money-got").css({transform:"scale(0.4)"});
+          $(".money-words").css({transform:"scale(0.4)"});
+          $(".money-num").css({transform:"scale(0.4)"});
+          $(".money-got").transition({transform:"scale(1.0)"}, 300, 'linear');
+          $(".money-words").transition({transform:"scale(1.0) rotate(-7deg)"}, 300, 'linear'); 
+          $(".money-num").transition({transform:"scale(1.0)"}, 300, 'linear'); 
+
+          $(".share-img").show();
+          $(".go-img").show();
+          $(".share-img").css({transform:"scale(0.4)"});
+          $(".go-img").css({transform:"scale(0.4)"});
+          $(".share-img").transition({transform:"scale(1.0)"}, 300, 'linear');
+          $(".go-img").transition({transform:"scale(1.0)"}, 300, 'linear'); 
+        });
+      };
+      //  获得xx红包  调用该方法
+      get_red(10);
+
+      // 点击分享 显示箭头
       $(".share-img").click(function(e){
           $(".share").show();
       });
       $(".share").click(function(e){
           $(".share").hide();
       });
+      // 微信分享数据
       var DOMAIN = 'http://http://blog.sbw.me/qsc';
       var imgUrl = DOMAIN + '/resources/icon.png';
       var lineLink = DOMAIN + '/shared.html';
