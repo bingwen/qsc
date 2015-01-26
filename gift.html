@@ -29,7 +29,7 @@
     .arrow-img{float: right; width: 300px;}
   </style>
 </head>
-<body style="background:#FEDBC5;">
+<body style="background:#FEDBC5; margin: 0;">
   <a href="./index.html">
     <img class="back-img" src="./resources/gift/back.png"></img>
   </a>
@@ -46,6 +46,9 @@
   <script src="http://libs.baidu.com/jquery/2.0.0/jquery.min.js"></script>
   <script>
     $(function(){
+        $(".share-img").css("top", window.innerWidth*1.0+"px");
+        $(".go-img").css("top", window.innerWidth*1.2+"px");
+
         $(".share-img").click(function(e){
             $(".share").show();
         });

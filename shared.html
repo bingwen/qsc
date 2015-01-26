@@ -28,7 +28,9 @@
     .red-box{position: absolute; width: 80%; top: 44%; left: 50%; margin-left: -40%;}
     .red-on{width: 20%; text-align: center;}
     .red-on-img{width: 100%;}
-    .red-on-words{font-size: 12px; color: #5F5F5F; margin-top: 5px;}
+    .red-on-words{font-size: 12px; color: #5F5F5F; margin-top: 5px;
+        overflow: hidden; -ms-text-overflow: ellipsis; -o-text-overflow: ellipsis; -webkit-text-overflow: ellipsis; text-overflow: ellipsis;
+    }
     .red-1{float: left; margin-left: 5%;}
     .red-2{float: left; margin: 0 15%;}
     .red-3{float: right; margin-right: 5%;}
@@ -40,11 +42,11 @@
     .go-red{width: 30%; margin-top: 10%;}
   </style>
 </head>
-<body style="background:#FEDBC5;">
+<body style="background:#FEDBC5; margin: 0;">
   <img class="bg-img" src="./resources/share/share_bg.png"></img>
   <div class="owner-box">
     <img class="avatar" src="./resources/icon.png"></img>
-    <p class="red-on-words">吃螃蟹大王</p>
+    <p class="red-on-words">螃蟹大王</p>
   </div>
   <div class="red-box content-box">
     <div class="red-line-1">
@@ -90,7 +92,7 @@
   <script>
     $(function(){
       $(".owner-box").css("top", window.innerWidth*0.55+"px");
-      $(".content-box").css("top", window.innerWidth*0.85+"px");
+      $(".content-box").css("top", window.innerWidth*0.80+"px");
     });
   </script>
 
