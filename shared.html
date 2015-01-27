@@ -42,7 +42,7 @@
     .finished-words{width: 90%;}
     .go-red{width: 30%; margin-top: 10%;}
 
-    .btn-words{position:absolute; bottom: 0px; right: 0px; width: 100px;}
+    .btn-words{position:absolute; top: 90%; right: 0px; width: 100px;}
     .words{width: 100%; height: 100%; background: #F0FD5A; position: absolute; left: 0; top: 0; display: none;}
     .words p{ margin-left: 20px; margin-right: 20px; line-height: 23px;}
     .close{float: right; font-size: 22px; margin-top: 10px; margin-right: 10px;}
@@ -110,6 +110,7 @@
     $(function(){
       $(".owner-box").css("top", window.innerWidth*0.55+"px");
       $(".content-box").css("top", window.innerWidth*0.80+"px");
+      $(".btn-words").css("top", window.innerWidth*1.40+"px");
       $(".btn-words").click(function(e){
           $(".words").show();
       });
